@@ -14,7 +14,7 @@ INCLUDE ending_4.ink
 
 
 // story variables
-
+VAR ending_reached = false
 
 
 // list to keep track of unique items
@@ -33,7 +33,7 @@ VAR num_repair_tasks = 20
 LIST unique_repair_tasks = thing
 
 // maybe variables for player location
-LIST locations = stasis_deck, nav_deck, crew_quarters, engine_room, damaged_bulkhead, alien_lab, medbay, life_support
+LIST locations = stasis_deck, nav_deck, crew_quarters, engine_room, damaged_bulkhead, alien_lab, medbay, life_support, bridge
 VAR player_location = stasis_deck
 
 -> start
@@ -77,6 +77,13 @@ This is the intro
 <- damaged_bulkhead_desc(ret)
 <- alien_lab_desc(ret)
 <- medbay_desc(ret)
+<- life_support_desc(ret)
+<- bridge_desc(ret)
+
+<- ending_1_desc(ret)
+<- ending_2_desc(ret)
+<- ending_3_desc(ret)
+<- ending_4_desc(ret)
 
 -> DONE
 
