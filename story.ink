@@ -1,6 +1,24 @@
+INCLUDE nav_deck.ink
+INCLUDE engine_room.ink
+INCLUDE damaged_bulkhead.ink
+INCLUDE stasis_deck.ink
+INCLUDE crew_quarters.ink
+INCLUDE alien_lab.ink
+INCLUDE medbay.ink
+INCLUDE life_support.ink
+INCLUDE bridge.ink
+INCLUDE ending_1.ink
+INCLUDE ending_2.ink
+INCLUDE ending_3.ink
+INCLUDE ending_4.ink
+
+
+// story variables
+
+
 
 // list to keep track of unique items
-LIST unique_items = screwdriver, fuel_cell, socket_wrench
+LIST unique_items = screwdriver, fuel_cell, socket_wrench, welder
 
 // variables to keep track of items that have more than one
 VAR num_wires = 0
@@ -15,68 +33,74 @@ VAR num_repair_tasks = 20
 LIST unique_repair_tasks = thing
 
 // maybe variables for player location
-LIST locations = stasis_deck, navigation_deck, crew_quarters, engine_room
+LIST locations = stasis_deck, nav_deck, crew_quarters, engine_room, damaged_bulkhead, alien_lab, medbay, life_support
 VAR player_location = stasis_deck
 
 -> start
 
 == start ==
 This is the start
--> location_stasis_deck
+-> intro
+
+== intro ==
+This is the intro
+-> main_desc
 
 
-// possible way of traveling
-// show options for moving to adjacent rooms
-// add conditions for different rooms
-== get_adjacent_locations(location) ==
-{location == stasis_deck:
-    + [Move to navigation deck.] 
-        -> location_navigation_deck
-    + [Move to engine room.] 
-        -> location_engine_room
-    + [Move to crew quarters.] 
-        -> location_crew_quarters
+== main_desc ==
+{
+    - monster_distance > 0:
+        -> main
 }
-{location == navigation_deck:
-    + [Move to stasis deck.] 
-        -> location_stasis_deck
-    + [Move to engine room.] 
-        -> location_engine_room
-}
-{location == engine_room:
-    + [Move to stasis deck.] 
-        -> location_stasis_deck
-    + [Move to navigation deck.] 
-        -> location_navigation_deck
-    + [Move to crew quarters.] 
-        -> location_crew_quarters
-}
-{location == crew_quarters:
-    + [Move to stasis deck.] 
-        -> location_stasis_deck
-    + [Move to engine room.] 
-        -> location_engine_room
-}
+-> END
+
+
+
+== main ==
+
+<- storylets(->main)
+-> DONE
+
+// + [See what you have]
+//     -> view_inventory
+
+// + [Next]
+//     -> main_desc
+
+
+// storylets
+== storylets(->ret) ==
+<- nav_deck_desc(ret)
+<- engine_room_desc(ret)
 -> DONE
 
 
-// thing for each place
-== location_stasis_deck ==
-This is the stasis deck
--> get_adjacent_locations(stasis_deck)
--> END
 
-== location_navigation_deck ==
-This is the navigation deck
--> get_adjacent_locations(navigation_deck)
--> END
+== view_inventory ==
+You have {list_with_commas(unique_items, "no tools")}.
+{
+    - num_wires == 1: You have a wire.
+    - num_wires > 1: You have {num_wires} wires.
+}
+{
+    - num_fuses == 1: You have a fuse.
+    - num_fuses > 1: You have {num_fuses} fuses.
+}
+{
+    - num_screws == 1: You have a screw.
+    - num_screws > 1: You have {num_screws} screws.
+}
+<- main
+-> DONE
 
-== location_crew_quarters ==
-This is the crew quarters
--> get_adjacent_locations(crew_quarters)
--> END
-
-== location_engine_room ==
-This is the engine room
--> get_adjacent_locations(engine_room)
--> END
+=== function list_with_commas(list, if_empty)
+    {LIST_COUNT(list):
+    - 2:
+        	{LIST_MIN(list)} and {list_with_commas(list - LIST_MIN(list), if_empty)}
+    - 1:
+        	{list}
+    - 0:
+			{if_empty}
+    - else:
+      		{LIST_MIN(list)}, {list_with_commas(list - LIST_MIN(list), if_empty)}
+    }
