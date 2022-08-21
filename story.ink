@@ -73,6 +73,10 @@ This is the intro
 <- stasis_deck_desc(ret)
 <- nav_deck_desc(ret)
 <- engine_room_desc(ret)
+<- damaged_bulkhead_desc(ret)
+<- alien_lab_desc(ret)
+<- medbay_desc(ret)
+
 -> DONE
 
 
