@@ -70,6 +70,7 @@ This is the intro
 
 // storylets
 == storylets(->ret) ==
+<- stasis_deck_desc(ret)
 <- nav_deck_desc(ret)
 <- engine_room_desc(ret)
 -> DONE
