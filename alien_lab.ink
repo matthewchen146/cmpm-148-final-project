@@ -10,7 +10,7 @@
 
 == alien_lab_body ==
 {
-    - monster_distance > 100:
+    - get_sanity() == high:
         The ship’s pièce de résistance, a vessel for the research at the heart of this voyage. A workbench runs along the back wall, host to several scientific instruments including an ostentatiously high-tech device which is really just a microscope. Behind it, a well-stocked chemical fume hood. Between you and that setup, though, is an examination table.
     	The freezers to your left boast a wide variety of tissue samples, and the containment units to your right house live specimens. From here you can see that it’s mostly plants, while a few are what you could call animals. You can’t tell if that purple one is adorable or horrific. You know there to be some highly secure petri dishes as well, presumably tucked away.
     	There are two doors opposite the desk space, leading to the Damaged Bulkhead and Life Support.

@@ -72,6 +72,7 @@ This is the intro
 == storylets(->ret) ==
 <- stasis_deck_desc(ret)
 <- nav_deck_desc(ret)
+<- crew_quarters_desc(ret)
 <- engine_room_desc(ret)
 <- damaged_bulkhead_desc(ret)
 <- alien_lab_desc(ret)
@@ -79,7 +80,15 @@ This is the intro
 
 -> DONE
 
+LIST possible_sanity = low, high
 
+== function get_sanity() ==
+{
+    - monster_distance > 100:
+        ~ return high
+    - else:
+        ~ return low
+}
 
 == view_inventory ==
 You have {list_with_commas(unique_items, "no tools")}.

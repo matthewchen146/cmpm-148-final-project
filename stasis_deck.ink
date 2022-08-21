@@ -9,5 +9,10 @@
 -> DONE
 
 == stasis_deck_body ==
-stasis deck
+{
+    - get_sanity() == high:
+        high
+    - else:
+        low
+}
 ->->

@@ -10,7 +10,7 @@
 
 == medbay_body ==
 {
-    - monster_distance > 100:
+    - get_sanity() == high:
         You walk past an organic 3D printer. On the counter beside it is a set of computer monitors, all currently displaying a generic screensaver resembling a stylized human body. Wires trail down from the monitors to a large, sleek cylinder lying on its side against the wall, with an entrance on one end and a control panel on the other. In the center of the room is an examination chair. The lamp positioned over it is off for now. Along the other wall are waste receptacles plastered with biohazard warnings. Above those, a sealed cabinet, presumably filled with pharmaceuticals and other medical supplies.
     	The other two walls primarily feature one door each, leading to the Damaged Bulkhead and Life Support.
     - else:
