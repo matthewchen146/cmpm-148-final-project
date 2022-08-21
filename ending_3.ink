@@ -1,12 +1,13 @@
 == ending_3_desc(->ret) ==
 {
-    - player_location == bridge:
+    - !ending_reached && player_location == bridge:
         + [ending 3]
-            -> ending_3_body ->
+            ~ ending_reached = true
+            -> ending_3_body
         -> ret
 }
 -> DONE
 
 == ending_3_body ==
 ending 3!!
-->->
+-> END
