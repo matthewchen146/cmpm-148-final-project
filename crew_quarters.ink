@@ -19,4 +19,12 @@
     	Are you alone? The beds are vacant. The walls press in. They bring the closets ever closer. You can not see into them. You can not see into the closets, nor the trunks bulging out from between the bunks. There is something inside of them. You don’t know what is inside of them.
     	The walls threaten to trap you here. The only ways out are to the Stasis Deck and Engine Room.
 }
++ Maybe there's something useful in your trunk.
+{
+        - unique_items !? screwdriver:
+            You open your trunk. Lying on top is a screwdriver.
+            ~ unique_items += screwdriver
+        - else:
+            There doesn't seem to be anything useful.
+}
 ->->
