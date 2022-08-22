@@ -30,7 +30,7 @@ VAR monster_distance = 100
 // possible ship related variables
 VAR ship_damage = 80 // percent
 VAR num_repair_tasks = 1
-LIST unique_repair_tasks = stop_engine
+LIST unique_repair_tasks = repair_engine
 
 // maybe variables for player location
 LIST locations = stasis_deck, nav_deck, crew_quarters, engine_room, damaged_bulkhead, alien_lab, medbay, life_support, bridge

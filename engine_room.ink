@@ -21,9 +21,9 @@ VAR engine_room_valve_fixed = false
 
 {
     - !engine_room_valve_broken:
-        You search for the main shutoff to stop the engine from running. You have to shut it down in order to conserve what is left in fuel and energy, as well as to prevent anymore malfunctions. On the center platform there is a large valve connected to the main pipe. It rotates slightly by itself, evidence of the engine still pumping if only a little.
+        You search for the main valve to reactivate the flow inside of the engines. It has to start spinning again if any more energy is to be made, otherwise the ship will go cold permanently. It should also prevent prevent anymore malfunctions. On the center platform there is a large valve connected to the main pipe. It rotates slightly by itself, evidence of the engine still pumping if only a little.
     - else:
-        The main shutoff valve is detached and needs to be welded back on with a welder.
+        The main valve is detached and needs to be welded back on with a welder.
 }
 * {!engine_room_valve_broken} You try to turn the valve.
     {
@@ -36,7 +36,7 @@ VAR engine_room_valve_fixed = false
     You realize the only way to reattach the valve is by welding it back onto its base with a welder.
     
 
-* {!engine_room_valve_fixed && engine_room_valve_broken && unique_items ? welder} You try to weld the valve back on.
+* {unique_repair_tasks !? repair_engine && engine_room_valve_broken && unique_items ? welder} You try to weld the valve back on.
 
     {
     - get_sanity() == high:
@@ -45,13 +45,14 @@ VAR engine_room_valve_fixed = false
         With the valve against the base, you hurriedly start welding the edges into place. You don't care if the weld is ugly, it just needs to be enough to turn again. You breathe heavily, unable to keep track of the time. The weld is done, and with the heat still spread on the valve, you grab it and turn it, wincing at the burn.
     }
     ~ engine_room_valve_fixed = true
-    The whir of the engine mellows, the steam comes to a stop.
+    ~ unique_repair_tasks += repair_engine
+    The whir of the engine stabilizes, the steam comes to a stop.
     
     {
     - get_sanity() == high:
-        Proud as you are, you have to keep moving. The now quiet atmosphere calms you.
+        Proud as you are, you have to keep moving. The now busy atmosphere calms you.
     - else:
-        The engine room is now eerily quiet. As the sounds die down, your mind grows louder.
+        The engine room is now rattling with new sounds. But your mind is louder, wondering if anything else is making any noise.
     }
 + ->->
 - ->->
