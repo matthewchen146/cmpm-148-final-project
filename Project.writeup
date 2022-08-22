@@ -1,0 +1,64 @@
+TITLE
+Game Name (please insert)
+https://github.com/matthewchen146/cmpm-148-final-project
+Jeremy Dahlberg
+Matthew Chen
+Noah Eichler
+Stanley Caldwell
+
+EXPERIENCE GOAL
+The emotional goal was to make the players experience fear, stress, and paranoia
+Our main goal as a team was to simply finish the game on time
+
+NARRATIVE STANCE AND RATIONALE
+The story follows an open map model, in which the player can travel between locations freely to complete tasks. The locations and story parts are structured as storylets. It also follows the gauntlet model, where the player moves mostly linearly through the story.
+The story is in second person, the focalizer being the player, following the player’s perspective and experience. This is important because the player’s actions and perspective are affected by the player’s sanity from the horror aspect. This makes the narrator unreliable.
+
+STORY STRUCTURE
+
+KEY INK VARIABLES / STATE TRACKING
+The key story state variables include:
+Monster distance
+Affects the player’s sanity
+Affects how the player sees surroundings and acts
+High sanity example:
+“The ship’s pièce de résistance, a vessel for the research at the heart of this voyage. A workbench runs along the back wall, host to several scientific instruments including an ostentatiously high-tech device which is really just a microscope. Behind it, a well-stocked chemical fume hood. Between you and that setup, though, is an examination table.”
+Low sanity example:
+You aren’t sure if the containment units in here actually work. These… well, you hesitate to even call them “creatures.” These entities sit behind the tempered glass, quivering and squirming. They seem innocuous now, while your eyes are trained on them. You don’t know anything about them. They could very well be capable of escaping.”
+Player location and list of locations
+Affects the player’s surroundings and where they can go
+List of unique items
+Affects what actions the player can perform
+“You realize the only way to reattach the valve is by welding it back onto its base with a welder.”
+
+INK AFFORDANCES
+We used storylet structures to check each location to see if the player can enter.
+== storylets(->ret) ==
+<- stasis_deck_desc(ret)
+<- nav_deck_desc(ret)
+<- engine_room_desc(ret)
+-> DONE
+Location descriptions contain conditions that check if the player can enter.
+== nav_deck_desc(->ret) ==
+{
+    - player_location == stasis_deck || (player_location == engine_room && nav_deck_engine_room_door_open):
+        + [Enter navigation deck]
+            ~ player_location = nav_deck
+            -> nav_deck_body ->
+        -> ret
+}
+-> DONE
+
+DISCOURSE EXAMPLE / DEMONSTRATION
+
+
+SOMETHING COOL
+
+
+RESOURCES USED
+References
+Don’t Escape 3. Scriptwelder, 2015.
+GTFO. Ten Chambers, 2019.
+Iron Lung. David Szymanski, 2022.
+Evolve. Turtle Rock Studios, 2015.
+Resources
