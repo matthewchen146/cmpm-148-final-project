@@ -1,8 +1,8 @@
 
 == ending_4_desc(->ret) ==
 {
-    - !ending_reached && player_location == bridge:
-        + [ending 4]
+    - !ending_reached && player_location == bridge && LIST_COUNT(unique_repair_tasks) < num_repair_tasks && monster_distance <= 0:
+        + [Call it a day]
             ~ ending_reached = true
             -> ending_4_body
         -> ret
