@@ -28,7 +28,6 @@ VAR alien_lab_sealed = false
     - else:
         The containment units have been sealed to the best of your ability.
 }
- ~ alien_lab_sealed = false
     You pat your pockets in search of a screwdriver.
     
 {unique_repair_tasks !? seal_alien_lab && alien_lab_sealed && unique_items ? screwdriver} You try to screw the vent back on.
@@ -43,7 +42,7 @@ VAR alien_lab_sealed = false
     ~ alien_lab_sealed = true
     ~ unique_repair_tasks += seal_alien_lab
     No one's getting out of there now.
-    
+    ->->
 }
 + ->->
 - ->->
