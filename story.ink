@@ -25,24 +25,23 @@ VAR num_wires = 0
 VAR num_fuses = 0
 VAR num_screws = 0
 
-VAR monster_distance = 50
+VAR monster_distance = 20
 
 // possible ship related variables
 VAR num_repair_tasks = 3
 LIST unique_repair_tasks = repair_engine, fix_life_support, seal_alien_lab
 
 // maybe variables for player location
-LIST locations = stasis_deck, nav_deck, crew_quarters, engine_room, damaged_bulkhead, alien_lab, medbay, life_support, bridge
-VAR player_location = stasis_deck
+LIST locations = intro_loc, stasis_deck, nav_deck, crew_quarters, engine_room, damaged_bulkhead, alien_lab, medbay, life_support, bridge
+VAR player_location = intro_loc
 
 -> start
 
 == start ==
-This is the start
 -> intro
 
 == intro ==
-This is the intro
+introintroinotr
 -> main_desc
 
 
@@ -59,12 +58,6 @@ This is the intro
 ~ monster_distance -= 1
 <- storylets(->main)
 -> DONE
-
-// + [See what you have]
-//     -> view_inventory
-
-// + [Next]
-//     -> main_desc
 
 
 // storylets
@@ -90,7 +83,7 @@ LIST possible_sanity = low, high
 
 == function get_sanity() ==
 {
-    - monster_distance > 25:
+    - monster_distance > 10:
         ~ return high
     - else:
         ~ return low

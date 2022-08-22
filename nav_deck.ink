@@ -18,7 +18,7 @@ The grand view to the outside is blocked by metal shutters. The glass is probabl
     - get_sanity() == high:
         The chairs are in place but scraped and in need of oil. They squeak with every turn. The dials are either dead or turning randomly. A mess of wires hang from open panels on the walls and on the ceiling, shaking with the turbulence of the ship.
     - else:
-        But through the air lock, in the shadow of a flashing light, you believe you might have seen something move. It could be the sway of a loose wire. There couldn't be any other survivors. Your train of thought is being interrupted by your own imagination. You're the last one, right? The squeak earlier was just a chair you accidentally turned, you think. Or the rolling of a loose nut on the ground. The shutters produce a metallic bang. More debris. Time doesn't allow you to dwell in your fears.
+        But through the air lock, in the shadow of a flashing light, you believe you might have seen something move. It could be the sway of a loose wire. Are there other people awake? Did they cause this chaos? Your train of thought is being interrupted by your own imagination. You're the only one, right? The squeak earlier was just a chair you accidentally turned, you think. Or the rolling of a loose nut on the ground. The shutters produce a metallic bang. More debris. Time doesn't allow you to dwell in your fears.
 }
 { 
     - nav_deck_cabin_door_open:
@@ -38,7 +38,7 @@ The grand view to the outside is blocked by metal shutters. The glass is probabl
     Taking down the heavy door piece by piece, there is finally enough space for you to fit through.
     ~ nav_deck_cabin_door_open = true
     ++ {nav_deck_cabin_door_open} You go inside the cabin room. 
-        The interior is definitely in the best shape out of the whole deck. The screens, while off, still function. The map on the main computer looks accurate. The hum of the control interface is comforting. It gives you hope that there could still be a chance of escape. 
+        The interior is definitely in the best shape out of the whole deck. The screens, while off, still function. The map on the main computer looks accurate. The hum of the control interface is comforting. It gives you hope that this journey is not over yet. 
         {
             - unique_items !? welder:
                 Beside the door, encased in a grated box is a welder. Luckily it was left unlocked. You bring it with you.
