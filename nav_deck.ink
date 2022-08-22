@@ -16,7 +16,7 @@ The grand view to the outside is blocked by metal shutters. The glass is probabl
 
 {
     - get_sanity() == high:
-        The chairs are in place but scraped and in need of oil. They squeak with every turn. The dials are either dead or turning randomly. A mess of wires hang from open panels on the walls and on the ceiling, shaking with the turbulence of the ship.
+        The chairs are in place but scraped and in need of oil. They squeak with every turn. The dials are either dead or turning randomly. A mess of wires hang from open panels on the walls and on the ceiling, shaking with the turbulence of the ship. Key caps litter the ground like confetti, sometimes in pieces, as though they were forcefully ripped out of their sockets.
     - else:
         But through the air lock, in the shadow of a flashing light, you believe you might have seen something move. It could be the sway of a loose wire. Are there other people awake? Did they cause this chaos? Your train of thought is being interrupted by your own imagination. You're the only one, right? The squeak earlier was just a chair you accidentally turned, you think. Or the rolling of a loose nut on the ground. The shutters produce a metallic bang. More debris. Time doesn't allow you to dwell in your fears.
 }
@@ -31,9 +31,10 @@ The grand view to the outside is blocked by metal shutters. The glass is probabl
     The bolts are painfully tight, your arms burn trying to twist it open.
     {
         - get_sanity() == high:
-            You groan with all your strength, and finally the bolt releases. The rest of the bolts are a breeze.
+            You groan with all your strength, and finally the bolt releases. Each bolt has its own challenges, stuck in a weird corner, or just twisted the wrong way. It's a chore releasing them one by one, but you want to get inside.
         - else:
             You hold your breath, trying not to make too much noise. Just in case. Sweat forms all over, from both labor and worry. You make a breakthrough, freeing the bolt at last. But the sound echoes through the ship, freezing you in place. You look around desperately as you remove the rest of the bolts as quickly as you can.
+            With every turn your anxiety grows, the cranks sending waves of worry through your body. You keep missing the bolts with your wrench, you quiver while you try to keep a steady hand.
     }
     Taking down the heavy door piece by piece, there is finally enough space for you to fit through.
     ~ nav_deck_cabin_door_open = true
@@ -41,7 +42,7 @@ The grand view to the outside is blocked by metal shutters. The glass is probabl
         The interior is definitely in the best shape out of the whole deck. The screens, while off, still function. The map on the main computer looks accurate. The hum of the control interface is comforting. It gives you hope that this journey is not over yet. 
         {
             - unique_items !? welder:
-                Beside the door, encased in a grated box is a welder. Luckily it was left unlocked. You bring it with you.
+                Beside the door, encased in a grated metal box is a welder. Luckily it was left unlocked. You open it and take the welder with you.
                 ~ unique_items += welder
         }
         
