@@ -72,6 +72,8 @@ It suddenly occurs to you that the crew is not awake.  You alone have been rouse
 
 // storylets
 == storylets(->ret) ==
+<- view_inventory(ret)
+
 <- stasis_deck_desc(ret)
 <- nav_deck_desc(ret)
 <- crew_quarters_desc(ret)
@@ -99,22 +101,22 @@ LIST possible_sanity = low, high
         ~ return low
 }
 
-== view_inventory ==
-You have {list_with_commas(unique_items, "no tools")}.
-{
-    - num_wires == 1: You have a wire.
-    - num_wires > 1: You have {num_wires} wires.
-}
-{
-    - num_fuses == 1: You have a fuse.
-    - num_fuses > 1: You have {num_fuses} fuses.
-}
-{
-    - num_screws == 1: You have a screw.
-    - num_screws > 1: You have {num_screws} screws.
-}
-<- main
--> DONE
+== view_inventory(->ret) ==
++ [View your inventory]
+    You have {list_with_commas(unique_items, "no tools")}.
+    {
+        - num_wires == 1: You have a wire.
+        - num_wires > 1: You have {num_wires} wires.
+    }
+    {
+        - num_fuses == 1: You have a fuse.
+        - num_fuses > 1: You have {num_fuses} fuses.
+    }
+    {
+        - num_screws == 1: You have a screw.
+        - num_screws > 1: You have {num_screws} screws.
+    }
+-> ret
 
 === function list_with_commas(list, if_empty)
     {LIST_COUNT(list):
