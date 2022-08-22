@@ -1,3 +1,4 @@
+
 == ending_4_desc(->ret) ==
 {
     - !ending_reached && player_location == bridge && LIST_COUNT(unique_repair_tasks) < num_repair_tasks && monster_distance <= 0:
