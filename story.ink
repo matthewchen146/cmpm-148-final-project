@@ -25,7 +25,7 @@ VAR num_wires = 0
 VAR num_fuses = 0
 VAR num_screws = 0
 
-VAR monster_distance = 100
+VAR monster_distance = 2
 
 // possible ship related variables
 VAR ship_damage = 80 // percent

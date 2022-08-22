@@ -1,6 +1,6 @@
 == engine_room_desc(->ret) ==
 {
-    - player_location == stasis_deck || (player_location == nav_deck && nav_deck_engine_room_door_open) || player_location == crew_quarters:
+    - player_location == stasis_deck || player_location == nav_deck || player_location == crew_quarters || player_location == damaged_bulkhead:
         + [Enter engine room]
             ~ player_location = engine_room
             -> engine_room_body ->
