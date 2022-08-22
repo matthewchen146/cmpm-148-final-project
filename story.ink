@@ -25,12 +25,12 @@ VAR num_wires = 0
 VAR num_fuses = 0
 VAR num_screws = 0
 
-VAR monster_distance = 200
+VAR monster_distance = 100
 
 // possible ship related variables
 VAR ship_damage = 80 // percent
-VAR num_repair_tasks = 20
-LIST unique_repair_tasks = thing
+VAR num_repair_tasks = 1
+LIST unique_repair_tasks = stop_engine
 
 // maybe variables for player location
 LIST locations = stasis_deck, nav_deck, crew_quarters, engine_room, damaged_bulkhead, alien_lab, medbay, life_support, bridge
@@ -49,7 +49,7 @@ This is the intro
 
 == main_desc ==
 {
-    - monster_distance > 0:
+    - !ending_reached:
         -> main
 }
 -> END
@@ -91,7 +91,7 @@ LIST possible_sanity = low, high
 
 == function get_sanity() ==
 {
-    - monster_distance > 100:
+    - monster_distance > 50:
         ~ return high
     - else:
         ~ return low
