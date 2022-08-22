@@ -8,6 +8,8 @@
 }
 -> DONE
 
+VAR alien_lab_sealed = false
+
 == alien_lab_body ==
 {
     - get_sanity() == high:
@@ -20,4 +22,28 @@
         Unless it remained here, lurking, it could have made its way to either the Damaged Bulkhead or Life Support through the doors.
 
 }
-->->
+{
+    - !alien_lab_sealed:
+        It looks like the containment units have been compromised. A vent of not insignificant size has fallen to the floor, surrounded by screws. You should really put it back before anything gets out. Hopefully nothing has already.
+    - else:
+        The containment units have been sealed to the best of your ability.
+}
+ ~ alien_lab_sealed = false
+    You pat your pockets in search of a screwdriver.
+    
+{unique_repair_tasks !? seal_alien_lab && alien_lab_sealed && unique_items ? screwdriver} You try to screw the vent back on.
+
+    {
+    - get_sanity() == high:
+        You collect the screws and metal plate from the ground and position them over the passage leading to the aliens. A few clockwise twists later and it looks good as new.
+        
+    - else:
+        You dare to get close enough to the foul-smelling hole that feeds into where these unknowable things are held captive. You fix the vent and pray you are not too late. 
+    }
+    ~ alien_lab_sealed = true
+    ~ unique_repair_tasks += seal_alien_lab
+    No one's getting out of there now.
+    
+}
++ ->->
+- ->->
