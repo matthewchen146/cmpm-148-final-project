@@ -1,10 +1,9 @@
-Group 15
-Scary Spaceship
-https://github.com/matthewchen146/cmpm-148-final-project
-Jeremy Dahlberg
-Matthew Chen
-Noah Eichler
-Stanley Caldwell
+# Group 15
+## Scary Spaceship
+- Jeremy Dahlberg
+- Matthew Chen
+- Noah Eichler
+- Stanley Caldwell
 
 ## EXPERIENCE GOAL
 
@@ -38,12 +37,7 @@ Behind it, a well-stocked chemical fume hood.
 Between you and that setup, though, is an examination table.”
 
 Low sanity example:
-"You aren’t sure if the containment units in here actually work. 
-These… well, you hesitate to even call them “creatures.” 
-These entities sit behind the tempered glass, quivering and squirming. 
-They seem innocuous now, while your eyes are trained on them. 
-You don’t know anything about them. 
-They could very well be capable of escaping.”
+> "You aren’t sure if the containment units in here actually work. These… well, you hesitate to even call them “creatures.” These entities sit behind the tempered glass, quivering and squirming. They seem innocuous now, while your eyes are trained on them. You don’t know anything about them. They could very well be capable of escaping.”
 
 ~ LIST locations
 ~ VAR player_location
@@ -74,17 +68,20 @@ We used storylet structure for the main loop of the story.
 Each location is represented by a storylet. 
 
 ex:
+```
 == storylets(->ret) ==
 <- stasis_deck_desc(ret)
 <- nav_deck_desc(ret)
 <- engine_room_desc(ret)
 -> DONE
+```
 
 The storylet descriptions contain conditions that check if the player can enter.
 Mainly if the player_location is in an adjacent room simply with multiple "and" conditions.
 Other conditions can be used for more elaborate conditions between rooms.
 
 ex:
+```
 == nav_deck_desc(->ret) ==
 {
     - player_location == stasis_deck || (player_location == engine_room && nav_deck_engine_room_door_open):
@@ -94,6 +91,7 @@ ex:
         -> ret
 }
 -> DONE
+```
 
 The inventory is also a storylet. It allows the player to check their items in every main loop and in any location.
 The endings are also storylets, checking if the player is in the right location and if they have the right conditions for that ending.
