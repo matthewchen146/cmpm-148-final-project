@@ -24,37 +24,34 @@ These changes can occur in different orders, and can rejoin in the same state an
 
 ## KEY INK VARIABLES / STATE TRACKING
 
-~ VAR monster_distance
+`VAR monster_distance`
 
 This decreases every loop, or every time the player moves between two locations.
 The sanity of the player is determined by the distance.
 This in turn affects how the player acts and describes their surroundings.
 
 High sanity example:
-“The ship’s pièce de résistance, a vessel for the research at the heart of this voyage. 
-A workbench runs along the back wall, host to several scientific instruments including an ostentatiously high-tech device which is really just a microscope. 
-Behind it, a well-stocked chemical fume hood. 
-Between you and that setup, though, is an examination table.”
+> “The ship’s pièce de résistance, a vessel for the research at the heart of this voyage. A workbench runs along the back wall, host to several scientific instruments including an ostentatiously high-tech device which is really just a microscope. Behind it, a well-stocked chemical fume hood. Between you and that setup, though, is an examination table.”
 
 Low sanity example:
 > "You aren’t sure if the containment units in here actually work. These… well, you hesitate to even call them “creatures.” These entities sit behind the tempered glass, quivering and squirming. They seem innocuous now, while your eyes are trained on them. You don’t know anything about them. They could very well be capable of escaping.”
 
-~ LIST locations
-~ VAR player_location
+`LIST locations`
+`VAR player_location`
 
 The player_location is one of the items in the locations list.
 It tells where the player is, and is used in location storylet descriptions to determine whether the player can enter that location.
 
-~ LIST unique_items
+`LIST unique_items`
 
 This list acts as an inventory for unique items that can have a obtained or not obtained state.
 Various tasks in the ship such as repair tasks check for unique items to be able to perform those tasks.
 
 ex:
-“You realize the only way to reattach the valve is by welding it back onto its base with a welder.”
+>“You realize the only way to reattach the valve is by welding it back onto its base with a welder.”
 
-~ VAR num_repair_tasks
-~ LIST unique_repair_tasks
+`VAR num_repair_tasks`
+`LIST unique_repair_tasks`
 
 This list is used to check whether each repair task is completed or not.
 The num_repair_tasks is the number of tasks that need to be completed for a status of "repaired."
@@ -107,16 +104,17 @@ In one playthrough, the player will explore the ship going through connected loc
 Then the player will find something that needs to be fixed.
 And if the player has the right conditions for it, such as having the correct item, they can fix it.
 If not, they can keep exploring until they find the right item on the ship.
-For example, the player goes through the stasis deck to the nav deck.
-The nav deck has a room that must be opened using a wrench.
-The player goes to the engine room and breaks a valve.
-The engine room valve must be fixed with a welder.
-The player goes to the damaged bulkhead and discovers a wrench.
-The player goes back to the nav deck and opens the room.
-In the room is a welder.
-Back to the engine room, the player fixes the valve.
-The player goes to the bridge and calls it a day.
-The monster is not close enough, but the ship is not fixed. So the player survives, but the ship fails.
+For example, 
+1. The player goes through the stasis deck to the nav deck.
+2. The nav deck has a room that must be opened using a wrench.
+3. The player goes to the engine room and breaks a valve.
+4. The engine room valve must be fixed with a welder.
+5. The player goes to the damaged bulkhead and discovers a wrench.
+6. The player goes back to the nav deck and opens the room.
+7. In the room is a welder.
+8. Back to the engine room, the player fixes the valve.
+9. The player goes to the bridge and calls it a day.
+10. The monster is not close enough, but the ship is not fixed. So the player survives, but the ship fails.
 With each movement through the ship, the monster_distance decreases.
 When the monster distance is close enough, their sanity will change to low, becoming more nervous and paranoid.
 Ship descriptions and their thoughts will become more fearful.
@@ -128,8 +126,8 @@ This means revisiting locations can result in different descriptions, keeping it
 
 ## RESOURCES USED
 References
-Don’t Escape 3. Scriptwelder, 2015.
-GTFO. Ten Chambers, 2019.
-Iron Lung. David Szymanski, 2022.
-Evolve. Turtle Rock Studios, 2015.
+- Don’t Escape 3. Scriptwelder, 2015.
+- GTFO. Ten Chambers, 2019.
+- Iron Lung. David Szymanski, 2022.
+- Evolve. Turtle Rock Studios, 2015.
 
