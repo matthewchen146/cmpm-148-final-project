@@ -121,6 +121,7 @@ For example,
 8. Back to the engine room, the player fixes the valve.
 9. The player goes to the bridge and calls it a day.
 10. The monster is not close enough, but the ship is not fixed. So the player survives, but the ship fails.
+
 With each movement through the ship, the monster_distance decreases.
 When the monster distance is close enough, their sanity will change to low, becoming more nervous and paranoid.
 Ship descriptions and their thoughts will become more fearful.
