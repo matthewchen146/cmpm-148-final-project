@@ -59,6 +59,11 @@ The num_repair_tasks is the number of tasks that need to be completed for a stat
 Based on whether the num_repair_tasks is reached and the monster_distance when the player is finished,
 the story conclusion will reflect that. In total, this results in 4 different endings.
 
+| | monster_distance close | monster_distance far|
+| ship repaired | 1 | 2 |
+| ship not repaired | 3 | 4 |
+
+
 ## INK AFFORDANCES
 
 We used storylet structure for the main loop of the story. 
